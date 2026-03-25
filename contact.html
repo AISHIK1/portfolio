@@ -1,0 +1,24 @@
+<div class="trace-card reveal">
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="hidden" name="_next" value="https://your-domain.com/thankyou.html">
+        
+        <div class="input-group">
+            <input type="text" name="name" id="name" placeholder=" " required>
+            <label for="name">Full Name</label>
+        </div>
+        
+        <div class="input-group">
+            <input type="email" name="email" id="email" placeholder=" " required>
+            <label for="email">Email Address</label>
+        </div>
+        
+        <div class="input-group">
+            <textarea name="message" id="message" rows="4" placeholder=" " required></textarea>
+            <label for="message">Your Message</label>
+        </div>
+        
+        <button type="submit" class="w-full py-4 bg-gradient-to-r from-primary to-primary-dim font-bold text-background rounded-xl hover:shadow-lg hover:shadow-primary/20 transition-all">
+            Send Message
+        </button>
+    </form>
+</div>

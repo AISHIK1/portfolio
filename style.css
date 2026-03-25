@@ -1,0 +1,128 @@
+/* Design System: The Luminescent Portfolio */
+:root {
+    --background: #060e20;
+    --surface: #0f1930;
+    --surface-low: #091328;
+    --primary: #97a9ff;
+    --primary-dim: #3e65ff;
+    --secondary: #b884ff;
+    --tertiary: #ffa3e9;
+    --on-surface: #dee5ff;
+    --on-surface-variant: #a3aac4;
+    --outline-variant: rgba(64, 72, 93, 0.15);
+}
+
+body {
+    background-color: var(--background);
+    color: var(--on-surface);
+    font-family: 'Manrope', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+h1, h2, h3, .font-headline {
+    font-family: 'Noto Serif', serif;
+    letter-spacing: -0.02em;
+}
+
+/* Glass Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(6, 14, 32, 0.7);
+    backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--outline-variant);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--on-surface-variant);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-left: 2.5rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary);
+}
+
+/* Luminescent Trace Cards */
+.trace-card {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--outline-variant);
+    border-radius: 1rem;
+    padding: 2.5rem;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.trace-card:hover {
+    transform: translateY(-10px);
+}
+
+.trace-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(151, 169, 255, 0.1), transparent 40%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.trace-card:hover::before {
+    opacity: 1;
+}
+
+/* Form Styling - Underline Only */
+.input-group {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid var(--on-surface-variant);
+    color: var(--on-surface);
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus, .input-group textarea:focus {
+    outline: none;
+    border-bottom-color: var(--primary);
+}
+
+.input-group label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: var(--on-surface-variant);
+    pointer-events: none;
+    transition: all 0.3s;
+}
+
+.input-group input:focus ~ label, .input-group input:not(:placeholder-shown) ~ label {
+    top: -20px;
+    font-size: 0.8rem;
+    color: var(--primary);
+}
